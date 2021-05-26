@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %} Manipulando textos{%  endblock title %}
+
+{% block content %} 
+
+<div class="container">
+    <form method="post">{% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Texte área</label><br>
+            
+            <textarea name="text_area" cols="150" rows="10" required="" id="text_area"></textarea>
+            <!--<textarea class="form-control" id="textarea" rows="6" name="textarea" placeholder="Digite seu texto"></textarea>-->
+        </div>
+        <button type="submit" class="btn btn-primary">Converter</button>
+        <div class="col-sm-4">
+            <label><input type="radio" name="qualityRadio" value="titulo"> titulo</label>
+            <label><input type="radio" name="qualityRadio" value="maiusculo"> maiusculo</label>
+            <label><input type="radio" name="qualityRadio" value="minusculo"> minusculo</label>
+        </div>
+    </form>
+    {% if text %}
+           {{text}}
+    {% endif %}
+</div>
+
+{% endblock content %}
